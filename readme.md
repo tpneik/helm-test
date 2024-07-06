@@ -1,6 +1,6 @@
 
 # Pakage
-## Make packet
+## Make package
 Go to chart folder 
 ```bash
 helm package . # /// -> return my-chart-0.1.0.tgz
