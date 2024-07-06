@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  nodetest:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-07-06T05:54:56.841275221Z"
+    description: A Helm chart for testing by Trung Kien Phan
+    digest: c6c9538d5bca76ccdb15fbcb55c2f0c17e864238acf7cdba2813bac6283c96bc
+    name: nodetest
+    type: application
+    urls:
+    - https://tpneik.github.io/helm-test/nodetest-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-07-06T05:54:56.839336788Z"
