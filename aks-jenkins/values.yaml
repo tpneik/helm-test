@@ -1,0 +1,11 @@
+controller:
+  componentName: "jenkins-controller"
+  image:
+    repository: "jenkins/jenkins"
+    tag: alpine
+jenkinsHome: "/var/jenkins_home"
+jenkinsUrl: 
+serviceType: ClusterIP
+servicePort: 8080
+targetPort: 8080
+nodePort:
