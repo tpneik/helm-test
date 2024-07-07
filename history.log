@@ -1,0 +1,500 @@
+   61  nano hello-world-ingress.yaml 
+   62  kubectl get all -n jenkins
+   63  kubectl get ns
+   64  ls
+   65  cat svc-default.yml 
+   66  cat ingress-config.yml 
+   67  rm ingress-config.yml 
+   68  mv hello-world-ingress.yaml ingress.yml
+   69  clear
+   70  ls
+   71  cat ingress.yml 
+   72  cat svc-default.yml 
+   73  helm install jenkins ../../aks-jenkins/ -n jenkins
+   74  helm install jenkins ../../aks-jenkins/ -n jenkins --create-namespace
+   75  kubectl get ns
+   76  kubectl get all -n default
+   77  helm install jenkins ../../aks-jenkins/
+   78  kubectl get ns
+   79  kubectl get pv 
+   80  ls
+   81  mv pv ../
+   82  mv pv-azuredisk.yml ../
+   83  helm install jenkins ../../aks-jenkins/
+   84  helm list
+   85  helm uninstall jenkins
+   86  ls
+   87  mv ../pv-azuredisk.yml .
+   88  clear
+   89  ls
+   90  helm install jenkins ../../aks-jenkins/
+   91  kubectl get all -n jenkins
+   92  kubectl get ingress -n jenkins
+   93  kubectl get all -n jenkins
+   94  clear
+   95  kubectl get all -n jenkins
+   96  cd ~
+   97  ls
+   98  cd test/
+   99  cat hello-world-ingress.yaml 
+  100  clear
+  101  kubectl get all -n jenkins
+  102  kubectl get ingress -n jenkins
+  103  cd ../jenkins-kube/helm-jenkins/aks-jenkins/
+  104  cd templates/
+  105  ls
+  106  nano ingress.yml 
+  107  kubectl get ingress -n jenkins
+  108  helm install stable/cert-manager --name cm --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
+  109  clear
+  110  helm install cm jetstack/cert-manager --namespace cert-manager --create-namespace --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
+  111  cd ~
+  112  mkdir certmanager
+  113  cd certmanager/
+  114  issuer.yml
+  115  nano issuer.yml
+  116  nano certificate.yml
+  117  cat certificate.yml 
+  118  kubectl get certificate
+  119  kubectl get certificate -A
+  120  kubectl get clusterissuer -A
+  121  kubectl get secret -A
+  122  kubectl get secret letsencrypt-staging
+  123  cat issuer.yml 
+  124  kubectl apply -f issuer.yml 
+  125  kubectl get ns
+  126  kubectl get pods --namespace cert-manager
+  127  kubectl get crds | grep cert-manager
+  128  nano issuer.yml 
+  129  kubectl apply -f issuer.yml 
+  130  cat certificate.yml 
+  131  kubectl apply -f certificate.yml 
+  132  nano certificate.yml 
+  133  nano issuer.yml 
+  134  kubectl apply -f issuer.yml 
+  135  kubectl apply -f certificate.yml 
+  136  kubectl get crds | grep cert-manager
+  137  kubectl apply -f issuer.yml
+  138  kubectl apply -f certificate.yml
+  139  ls
+  140  kubectl get all -n cert-manager
+  141  kubectl get Certificate -A
+  142  kubectl get certificate -A
+  143  kubectl get clusterissuer -A
+  144  kubectl get issuer -A
+  145  kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml --validate=false
+  146  ls
+  147  cd certmanager/
+  148  ls
+  149  cat certificate.yml 
+  150  kubectl apply -f certificate.yml 
+  151  kubectl get pods --namespace cert-manager
+  152  ls
+  153  cat issuer.yml 
+  154  vi issuer.yml 
+  155  cat issuer.yml 
+  156  vi issuer.yml 
+  157  kubectl apply -f issuer.yml
+  158  cat issuer.yml 
+  159  ls
+  160  cat certificate.yml 
+  161  kubectl apply -f certificate.yml 
+  162  vi certificate.yml 
+  163  cat certificate.yml 
+  164  kubectl apply -f certificate.yml
+  165  vi certificate.yml 
+  166  cat certificate.yml 
+  167  kubectl apply -f certificate.yml
+  168  cd ../jenkins-kube/helm-jenkins/aks-jenkins/
+  169  cd templates/
+  170  nano ingress.yml 
+  171  vi ingress.yml 
+  172  cat ingress.yml 
+  173  vi ingress.yml 
+  174  cat ingress.yml 
+  175  helm upgrade jenkins ../../aks-jenkins/
+  176  vi ingress.yml 
+  177  helm upgrade jenkins ../../aks-jenkins/
+  178  vi ingress.yml 
+  179  helm upgrade jenkins ../../aks-jenkins/
+  180  kubectl get all -n jenkins
+  181  kubectl get ingress -n jenkins
+  182  cd ~
+  183  ls
+  184  cd test/
+  185  ls
+  186  vi hello-world-ingress.yaml 
+  187  cat hello-world-ingress.yaml 
+  188  vi hello-world-ingress.yaml 
+  189  kubectl get ns
+  190  kubectl get all -n ingress-basic
+  191  kubectl get ingress -n ingress-basic
+  192  vi hello-world-ingress.yaml 
+  193  kubectl apply -f hello-world-ingress.yaml -n ingress-basic
+  194  cd ~/jenkins-kube/helm-jenkins/aks-jenkins/templates/
+  195  ls
+  196  cat ingress.yml 
+  197  cat ~/test/hello-world-ingress.yaml 
+  198  vi ingress.yml 
+  199  helm upgrade jenkins ../../aks-jenkins/
+  200  vi ingress.yml 
+  201  helm upgrade jenkins ../../aks-jenkins/
+  202  cat ingress.yml 
+  203  kubectl get clusterissuer 
+  204  kubectl describe certificates hello-world
+  205  kubectl get certificates -A
+  206  cat ~/certmanager/issuer.yml 
+  207  kubectl apply -f ~/certmanager/issuer.yml
+  208  cat ~/certmanager/certificate.yml 
+  209  kubectl describe certificate hello-world -n cert-manager
+  210  kubectl get clusterissue
+  211  kubectl get clusterissues
+  212  kubectl get clusterissuer
+  213  cat ~/certmanager/certificate.yml 
+  214  vi ~/certmanager/certificate.yml 
+  215  kubectl apply -f  ~/certmanager/certificate.yml
+  216  kubectl get crd | grep cert-manager
+  217  helm status
+  218  helm list
+  219  helm list -A
+  220  helm uninstall cm -n cert-manager
+  221  kubectl get ns
+  222  kubectl get all -n cert-managet
+  223  kubectl get crd | grep cert-manager
+  224  kubectl delete crd *
+  225  kubectl get crd | grep cert-manager
+  226  kubectl delete crd certificaterequests.cert-manager.io certificates.cert-manager.io challenges.acme.cert-manager.io clusterissuers.cert-manager.io issuers.cert-manager.io orders.acme.cert-manager.io
+  227  kubectl get crd | grep cert-manager
+  228  kubectl get clusterissuer
+  229  kubectl get crd | grep cert-manager
+  230  kubectl get clusterissuer
+  231  kubectl get clusterissuers
+  232  kubectl get certificate
+  233  kubectl get ns
+  234  kubectl delete ns cert-manager
+  235  kubectl get ns
+  236  kubectl get clusterrole --A
+  237  kubectl get clusterrole -A
+  238  kubectl get ns
+  239  kubectl get all -n ingress-basic
+  240  kubectl delete pod aks-helloworld-one-6c4c566d77-5qqrm aks-helloworld-two-75bb969d59-26wb9
+  241  kubectl delete pod/aks-helloworld-one-6c4c566d77-5qqrm
+  242  cd test/
+  243  ls
+  244  kubectl delete -f .
+  245  kubectl delete -f . -n ingress-basic
+  246  cat hello-world-ingress.yaml 
+  247  ls
+  248  kubectl create ns test
+  249  kubectl apply -f . -n test
+  250  kubectl get all -n ingress-basic
+  251  kubectl get all -n test
+  252  kubectl get ns
+  253  kubectl create ns cert-manager
+  254  kubectl label namespace cert-manager cert-manager.io/disable-validation=true
+  255  helm repo add jetstack https://charts.jetstack.io
+  256  kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml
+  257  helm install cert-manager jetstack/cert-manager   --namespace cert-manager   --version v1.11.0
+  258  kubectl get clusterissuer
+  259  cd ../certmanager/
+  260  ls
+  261  rm *
+  262  ls
+  263  cluster-issuer.yml
+  264  vicluster-issuer.yml
+  265  vi cluster-issuer.yml
+  266  kubectl get ingressclass
+  267  vi cluster-issuer.yml
+  268  kubectl apply -f cluster-issuer.yml -n cert-manager
+  269  kubectl get clusterissuer
+  270  cd ../test/
+  271  ls
+  272  vi hello-world-ingress.yaml 
+  273  ls
+  274  kubectl apply -f hello-world-ingress.yaml -n test
+  275  cat hello-world-ingress.yaml 
+  276  vi hello-world-ingress.yaml 
+  277  cat hello-world-ingress.yaml 
+  278  vi hello-world-ingress.yaml 
+  279  kubectl apply -f hello-world-ingress.yaml -n test
+  280  kubectl get all -n ingress-basic
+  281  kibectl get ingress -A
+  282  kubectl get ingress -A
+  283  ls
+  284  kubectl get ns
+  285  kubectl get all -n test
+  286  kubectl get all -n ingress-basic
+  287  kubectl get all -n jenkins
+  288  kubectl get secret -n cert-manager
+  289  kubectl get secret -n ingress-basic
+  290  kubectl get secret -n test
+  291  cd test/
+  292  ls
+  293  cat hello-world-ingress.yaml 
+  294  ci hello-world-ingress.yaml 
+  295  vi hello-world-ingress.yaml 
+  296  cat hello-world-ingress.yaml 
+  297  vi hello-world-ingress.yaml 
+  298  cat hello-world-ingress.yaml 
+  299  kubectl apply -f hello-world-ingress.yaml  -n test
+  300  kubectl get ingress -n test
+  301  kubectl get clusterissuer
+  302  kubectl get certificate -A
+  303  ls
+  304  cd..
+  305  cd ..
+  306  cd certmanager/
+  307  ls
+  308  cat cluster-issuer.yml 
+  309  .ls
+  310  ls
+  311  kubectl get all -n cert-manager
+  312  kubectl get ingress -n test
+  313  kubectl get certificate -n test
+  314  cat cluster-issuer.yml
+  315  cat ../test/hello-world-ingress.yaml 
+  316  kubectl get svc -n ingress-basic
+  317  cat ../jenkins-kube/helm-jenkins/aks-jenkins/templates/ingress.yml 
+  318  cat ../test/hello-world-ingress.yaml 
+  319  vi ../test/hello-world-ingress.yaml 
+  320  cat ../test/hello-world-ingress.yaml 
+  321  kubectl apply -f ../test/hello-world-ingress.yaml -n test
+  322  kubectl get ingress -n test
+  323  cd ../jenkins-kube/helm-jenkins/aks-jenkins/
+  324  ls
+  325  vi templates/ingress.yml 
+  326  helm upgrade jenkins ../aks-jenkins/
+  327  kubectl get ingress -n jenkins
+  328  cat templates/ingress.yml 
+  329  vi templates/ingress.yml 
+  330  helm upgrade jenkins ../aks-jenkins/
+  331  vi templates/ingress.yml 
+  332  helm upgrade jenkins ../aks-jenkins/
+  333  kubectl get certification -n jenkins
+  334  kubectl get certificate -n jenkins
+  335  vi templates/ingress.yml 
+  336  cat ~/test/hello-world-ingress.yaml 
+  337  vi templates/ingress.yml 
+  338  cat templates/ingress.yml 
+  339  helm upgrade jenkins ../aks-jenkins/
+  340  kubectl get certificate -n jenkins
+  341  cat ~/test/hello-world-ingress.yaml 
+  342  vi templates/ingress.yml 
+  343  helm upgrade jenkins ../aks-jenkins/
+  344  kubectl get certificate -n jenkins
+  345  vi templates/ingress.yml 
+  346  cat templates/ingress.yml 
+  347  helm upgrade jenkins ../aks-jenkins/
+  348  cat templates/ingress.yml 
+  349  vi templates/ingress.yml 
+  350  helm upgrade jenkins ../aks-jenkins/
+  351  cat templates/ingress.yml 
+  352  vi templates/ingress.yml 
+  353  helm upgrade jenkins ../aks-jenkins/
+  354  vi templates/ingress.yml 
+  355  helm upgrade jenkins ../aks-jenkins/
+  356  vi templates/ingress.yml 
+  357  helm upgrade jenkins ../aks-jenkins/
+  358  cat templates/ingress.yml 
+  359  vi templates/ingress.yml 
+  360  helm upgrade jenkins ../aks-jenkins/
+  361  cat templates/ingress.yml 
+  362  kubectl get svc -n jenkins
+  363  cat templates/svc-default.yml 
+  364  cat ~/.kube/config 
+  365  ls
+  366  cd jenkins-kube/
+  367  ls
+  368  cd helm-jenkins/
+  369  ls
+  370  cd aks-jenkins/
+  371  ls
+  372  cd templates/
+  373  ls
+  374  vi ingress.yml 
+  375  cat ingress.yml 
+  376  vi ingress.yml 
+  377  kubectl get all -n jenkins
+  378  cat deployment.yml 
+  379  vi deployment.yml 
+  380  kubectl apply -f deployment.yml
+  381  vi deployment.yml 
+  382  kubectl apply -f deployment.yml
+  383  cat ingress.yml 
+  384  helm upgrade jenkins ../../aks-jenkins/
+  385  vi deployment.yml 
+  386  helm upgrade jenkins ../../aks-jenkins/
+  387  vi deployment.yml 
+  388  kubectl get all -n jenkins
+  389  kubectl logs -n jenkins pod/jenkins-54f84bc4f8-789tp
+  390  kubectl get all -n jenkins
+  391  kubectl logs -n jenkins pod/jenkins-64fc968477-2r9ch
+  392  kubectl delete pod jenkins-64fc968477-2r9ch
+  393  kubectl delete pod jenkins-64fc968477-2r9ch -n jenkins
+  394  kubectl get all -n jenkins
+  395  vi deployment.yml 
+  396  kubectl apply -f deployment.yml -n jenkins
+  397  kubectl get all -n jenkins
+  398  kubectl delete -n jenkins pod/jenkins-64fc968477-frrvs
+  399  kubectl get all -n jenkins
+  400  kubectl delete -f deployment.yml 
+  401  kubectl get all -n jenkins
+  402  kubectl apply -f deployment.yml 
+  403  kubectl get all -n jenkins
+  404  kubectl get pod -n jenkins --watch
+  405  kubectl delete -f deployment.yml 
+  406  vi deployment.yml 
+  407  kubectl apply -f deployment.yml 
+  408  kubectl get pod -n jenkins --watch
+  409  vi svc-default.yml 
+  410  vi ingress.yml 
+  411  kubectl apply -f ingress.yml 
+  412  kubectl get all -n ingress-basic
+  413  ls
+  414  grep -rnw -e "az.kienpt.name" .
+  415  cd ~
+  416  ls
+  417  grep -rnw -e "az.kienpt.name" .
+  418  cd test/
+  419  ls
+  420  grep -rnw -e "az.kienpt.name" .
+  421  cd ..
+  422  ls
+  423  cd certmanager/
+  424  ls
+  425  cat cluster-issuer.yml 
+  426  cd ../jenkins-kube/helm-jenkins/aks-jenkins/templates/
+  427  ls
+  428  cat ingress.yml 
+  429  cd ~
+  430  grep -rnw -e "az-jenkins" .
+  431  grep -rnw -e "az-jenkins.kienpt.name.vn" .
+  432  grep -rnw -e "az-jenkins.kienpt.name.vn" /
+  433  clear
+  434  cd ../jenkins-kube/helm-jenkins/aks-jenkins/templates/
+  435  cd jenkins-kube/helm-jenkins/aks-jenkins/templates/
+  436  ls
+  437  cat ingress.yml 
+  438  vi ingress.yml 
+  439  nano ingress.yml 
+  440  cat ingress.yml 
+  441  kubectl apply -f svc-default.yml 
+  442  helm upgrade jenkins ../../aks-jenkins/
+  443  kubectl get all -n ingress-basic
+  444  kubectl decribe pod ingress-nginx-controller-6dfcb8658d-dgg5v
+  445  kubectl describe pod ingress-nginx-controller-6dfcb8658d-dgg5v
+  446  kubectl describe pod ingress-nginx-controller-6dfcb8658d-dgg5v -n ingress-basic
+  447  cat svc-loadbalancer.yml 
+  448  cat ingress.yml 
+  449  cat ~/test/hello-world-ingress.yaml 
+  450  vi  ~/test/hello-world-ingress.yaml
+  451  nano ~/test/hello-world-ingress.yaml
+  452  cat ~/test/hello-world-ingress.yaml
+  453  nano ~/test/hello-world-ingress.yaml
+  454  vi ~/test/hello-world-ingress.yaml
+  455  clear
+  456  nano ~/test/hello-world-ingress.yaml
+  457  kubectl create namespace public-ingress
+  458  helm upgrade --install ingress-nginx ingress-nginx   --repo https://kubernetes.github.io/ingress-nginx   --namespace public-ingress   --set controller.config.http2=true   --set controller.config.http2-push="on"   --set controller.config.http2-push-preload="on"   --set controller.ingressClassByName=true   --set controller.ingressClassResource.controllerValue=k8s.io/ingress-nginx   --set controller.ingressClassResource.enabled=true   --set controller.ingressClassResource.name=nginx   --set controller.service.externalTrafficPolicy=Local   --set controller.setAsDefaultIngress=true
+  459  helm install ingress-nginx/ingress-nginx   --namespace public-ingress   --set controller.config.http2=true   --set controller.config.http2-push="on"   --set controller.config.http2-push-preload="on"   --set controller.ingressClassByName=true   --set controller.ingressClassResource.controllerValue=k8s.io/ingress-nginx   --set controller.ingressClassResource.enabled=true   --set controller.ingressClassResource.name=nginx   --set controller.service.externalTrafficPolicy=Local   --set controller.setAsDefaultIngress=true
+  460  clear
+  461  helm install ingress ingress-nginx/ingress-nginx   --namespace public-ingress   --set controller.config.http2=true   --set controller.config.http2-push="on"   --set controller.config.http2-push-preload="on"   --set controller.ingressClassByName=true   --set controller.ingressClassResource.controllerValue=k8s.io/ingress-nginx   --set controller.ingressClassResource.enabled=true   --set controller.ingressClassResource.name=nginx   --set controller.service.externalTrafficPolicy=Local   --set controller.setAsDefaultIngress=true
+  462  kubectl delete ingressclass nginx
+  463  helm install ingress ingress-nginx/ingress-nginx   --namespace public-ingress   --set controller.config.http2=true   --set controller.config.http2-push="on"   --set controller.config.http2-push-preload="on"   --set controller.ingressClassByName=true   --set controller.ingressClassResource.controllerValue=k8s.io/ingress-nginx   --set controller.ingressClassResource.enabled=true   --set controller.ingressClassResource.name=nginx   --set controller.service.externalTrafficPolicy=Local   --set controller.setAsDefaultIngress=true
+  464  kubectl get all -n public-ingress
+  465  ls
+  466  cat ingress.yml 
+  467  nano ingress.yml 
+  468  cd jenkins-kube/helm-jenkins/aks-jenkins/
+  469  ls
+  470  cd templates/
+  471  ls
+  472  nano ingress.yml 
+  473  helm upgrade jenkins ../../aks-jenkins/ 
+  474  kubectl --help
+  475  kubectl api-resources | grep v
+  476  kubectl api-resources | grep Va
+  477  kubectl get validatingadmissionpolicies -A
+  478  kubectl get validatingadmissionpolicybindings -A
+  479  kubectl getvalidatingwebhookconfigurations -A
+  480  kubectl get validatingwebhookconfigurations -A
+  481  kubectl get all -n public-ingress
+  482  kubectl delete validatingwebhookconfigurations ingress-nginx-admission
+  483  kubectl delete validatingwebhookconfigurations ingress-ingress-nginx-admission
+  484  kubectl get all -n public-ingress
+  485  helm upgrade jenkins ../../aks-jenkins/ 
+  486  kubectl get ingress -n jenkins
+  487  ls
+  488  kubectl get all -A
+  489  clear
+  490  kubectl get pod -A
+  491  clear
+  492  kubectl get pod -n jenkins
+  493  ls
+  494  cd ls
+  495  ls
+  496  cd jenkins
+  497  cd jenkins-kube/
+  498  ls
+  499  cd helm-jenkins/
+  500  ls
+  501  clear
+  502  history
+  503  ls
+  504  git clone
+  505  clear
+  506  git clone 
+  507  clear
+  508  git clone git@github.com:tpneik/kube-deploy.git
+  509  gh repo clone tpneik/kube-deploy
+  510  ls
+  511  rm -rf kube-deploy/
+  512  gh repo clone tpneik/helm-test
+  513  ls
+  514  cp -r aks-jenkins/ helm-test/
+  515  cd helm-test/
+  516  ls
+  517  git status
+  518  git add .
+  519  git status
+  520  ls
+  521  cd aks-jenkins/
+  522  ls
+  523  cd ..
+  524  git commit -m "add aks-jenkins test"
+  525  git push origin master
+  526  ls
+  527  git pull
+  528  cd ~
+  529  ls
+  530  cd test/
+  531  ls
+  532  cd .. 
+  533  clear
+  534  cp -r test/ jenkins-kube/helm-jenkins/helm-test/
+  535  cd jenkins-kube/helm-jenkins/helm-test/
+  536  ls
+  537  git add . 
+  538  git commit -m "add test"
+  539  git push origin master
+  540  cd ~
+  541  ls
+  542  cd certmanager/
+  543  ls
+  544  cat cluster-issuer.yml 
+  545  cd ..
+  546  cp certmanager/ jenkins-kube/helm-jenkins/helm-test/
+  547  cp -r certmanager/ jenkins-kube/helm-jenkins/helm-test/
+  548  cd jenkins-kube/helm-jenkins/helm-test/
+  549  ls
+  550  git add .
+  551  git commit -m "add certmanager"
+  552  git push origin main
+  553  git push origin master
+  554  clear
+  555  history
+  556  clear
+  557  ls
+  558  clear
+  559  ls
+  560  history > history.log
